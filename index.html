@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BryHub | Catálogo tecnológico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" data-view="home"><span class="brand-icon">◆</span><span>BryHub</span></a>
+    <nav class="nav">
+      <a href="#inicio" data-view="home">Inicio</a>
+      <a href="#laptops" data-category="laptops">Laptops</a>
+      <a href="#audifonos" data-category="audifonos">Audífonos</a>
+      <a href="#celulares" data-category="telefonos">Celulares</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button">☾</button>
+  </header>
+
+  <main>
+    <section class="hero reveal" id="inicio" data-page="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <p class="eyebrow">BryHub · catálogo premium</p>
+        <h1>Explora tecnología con fichas claras, visuales y comparaciones reales.</h1>
+        <p class="hero-text">Inicio limpio tipo Apple: animaciones, noticias, tips y accesos. Los productos aparecen solamente al entrar a Laptops, Audífonos o Celulares.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#laptops" data-category="laptops">Ver laptops</a>
+          <a class="btn ghost" href="#audifonos" data-category="audifonos">Ver audífonos</a>
+          <a class="btn ghost" href="#celulares" data-category="telefonos">Ver celulares</a>
+        </div>
+      </div>
+      <div class="hero-device" aria-hidden="true">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="floating-card card-a"><span>Comparador flotante</span><strong>Lista rápida</strong></div>
+        <div class="floating-card card-b"><span>Fichas completas</span><strong>Todo desglosado</strong></div>
+        <div class="floating-card card-c"><span>Responsive</span><strong>Móvil · tablet · laptop</strong></div>
+      </div>
+    </section>
+
+    <section class="home-info reveal" data-page="home">
+      <div class="section-heading"><p class="eyebrow">Inicio</p><h2>Cómo funciona BryHub</h2><p>Una experiencia ordenada: primero eliges categoría, después filtras, abres detalles o mandas productos al comparador.</p></div>
+      <div class="info-grid">
+        <article><span>01</span><h3>Catálogo separado</h3><p>Laptops, audífonos y celulares no se mezclan. Cada apartado tiene sus propios filtros y datos.</p></article>
+        <article><span>02</span><h3>Vista completa</h3><p>Al dar click en un producto se abre una subvista limpia con imagen, versiones, colores, ventajas y especificaciones.</p></article>
+        <article><span>03</span><h3>Comparación tipo Versus</h3><p>Agrega productos a una lista flotante y abre una página de comparación con tabla completa.</p></article>
+      </div>
+    </section>
+
+    <section class="category-links reveal" data-page="home">
+      <div class="section-heading"><p class="eyebrow">Apartados</p><h2>Elige una sección</h2></div>
+      <div class="category-cards">
+        <a class="category-card laptop-card" href="#laptops" data-category="laptops"><span>💻</span><h3>Laptops</h3><p>Procesadores, RAM, almacenamiento, GPU, batería, colores y usos.</p></a>
+        <a class="category-card audio-card" href="#audifonos" data-category="audifonos"><span>🎧</span><h3>Audífonos</h3><p>ANC, batería, tipo, micrófono, códecs, resistencia y compatibilidad.</p></a>
+        <a class="category-card phone-card" href="#celulares" data-category="telefonos"><span>📱</span><h3>Celulares</h3><p>Pantalla, cámara, procesador, RAM, almacenamiento, carga y colores.</p></a>
+      </div>
+    </section>
+
+    <section class="news-section reveal" data-page="home">
+      <div class="section-heading"><p class="eyebrow">Noticias y tips</p><h2>Información antes de comprar</h2></div>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+    <section class="catalog-section hidden" id="catalogo" data-page="catalog">
+      <div class="catalog-title reveal">
+        <div><p class="eyebrow" id="categoryEyebrow">Apartado</p><h2 id="categoryTitle">Laptops</h2><p id="categoryDescription">Productos de la sección seleccionada.</p></div>
+        <div class="category-chips" id="categoryChips"></div>
+      </div>
+      <div class="catalog-layout reveal">
+        <aside class="filters-panel">
+          <div class="filter-title"><h3>Ordenar y filtrar</h3><button id="clearFilters" type="button">Limpiar</button></div>
+          <label>Buscar<input id="searchInput" type="search" placeholder="Nombre, marca o uso..." /></label>
+          <label>Marca<select id="brandFilter"></select></label>
+          <label>Precio máximo<input id="priceRange" type="range" min="0" max="100000" value="100000" step="500" /><span class="range-value" id="priceValue"></span></label>
+          <label>Año mínimo<select id="yearFilter"></select></label>
+          <label>Característica<select id="featureFilter"></select></label>
+        </aside>
+        <section class="products-area">
+          <div class="products-toolbar"><h3 id="productsTitle">Productos disponibles</h3><span id="resultCount">0 resultados</span></div>
+          <div class="products-grid versus-grid" id="productsGrid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="detail-page hidden" id="detailPage">
+      <button class="back-btn" id="backToCatalog" type="button">← Volver al catálogo</button>
+      <div id="detailContent"></div>
+    </section>
+
+    <section class="compare-page hidden" id="comparePage">
+      <button class="back-btn" id="backFromCompare" type="button">← Volver</button>
+      <div class="section-heading"><p class="eyebrow">Comparación BryHub</p><h2>Comparación completa</h2><p>Revisa todas las especificaciones de los dispositivos seleccionados.</p></div>
+      <div id="comparePageContent"></div>
+    </section>
+  </main>
+
+  <aside class="compare-drawer" id="compareDrawer" aria-label="Lista de comparación">
+    <div class="drawer-head"><strong>VS</strong><span>Lista de comparación</span><button id="drawerToggle" type="button">⌄</button></div>
+    <div class="drawer-body" id="drawerBody"></div>
+    <button class="drawer-compare" id="openCompare" type="button">Comparar</button>
+  </aside>
+
+  <footer class="footer"><strong>BryHub</strong><span>Catálogo tecnológico responsive con estilo premium.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
