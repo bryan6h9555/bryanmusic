@@ -53,3 +53,21 @@ footer {
 }
 
 
+.newsletter {
+    margin-top: 15px;
+}
+
+.newsletter input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
